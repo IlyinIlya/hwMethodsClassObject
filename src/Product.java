@@ -1,49 +1,48 @@
 import java.util.Objects;
 
 public class Product {
-   private int id;
-   private String name;
-   private int price;
-   private String category;
+    private int id;
+    private String name;
+    private int price;
+    private String category;
 
-   public Product(int id, String name, int price, String category){
-       this.id = id;
-       this.name = name;
-       this.price = price;
-       this.category = category;
-   }
+    public Product(int id, String name, int price, String category) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getPrice() {
-        return price;
+        return this.price;
     }
 
     public String getCategory() {
-        return category;
+        return this.category;
     }
 
     @Override
     public String toString() {
-        return "Товар ( Артикул: " + id + ", Наименование: " + name + ", Цена: " + price + ", Категория: " + category + " )";
+        return "Товар [Артикул: " + id + ", Наименование: " + name + ", Цена: " + price + ", Категория: " + category + "]";
     }
 
     @Override
     public boolean equals(Object obj) {
-       if (this == obj) {
-           return true;
-       }
-       if (obj == null || getClass() != obj.getClass()) {
-           return false;
-       }
-       Product product = (Product) obj;
-       return id == product.id && Objects.equals(category, product.category);
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Product product = (Product) obj;
+        return id == product.id && Objects.equals(category, product.category);
     }
 }
-

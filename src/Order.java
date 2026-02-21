@@ -25,13 +25,12 @@ public class Order {
         }
         Order order = (Order) obj;
         boolean compare = true;
-        int i = 0;
         if (basket.length != order.basket.length){
             return false;
         } else{
             for (int elem = 0; elem < basket.length; elem++){
-                if (Objects.equals(basket[elem], order.basket[elem])) {
-                    compare = true;
+                if (Objects.equals(basket[elem], order.basket[elem]) == false) {
+                    compare = false;
                     break;
                 }
             }
