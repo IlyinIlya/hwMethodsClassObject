@@ -30,14 +30,14 @@ public class Order {
         if (basket == null || order.basket == null) return false;
         if (basket.length != order.basket.length) return false;
 
-            for (int elem = 0; elem < basket.length; elem++) {
-                 if (basket[elem] == null || order.basket[elem] == null) return false;
-                 if (basket[elem] == null && order.basket[elem] == null) continue;
-                 if (!basket[elem].equals(order.basket[elem])) {
-                     compare = false;
-                    break;
-                }
+        for (int elem = 0; elem < basket.length; elem++) {
+            if (basket[elem] == null || order.basket[elem] == null) return false;
+            if (basket[elem] == null && order.basket[elem] == null) continue;
+            if (!basket[elem].equals(order.basket[elem])) {
+                compare = false;
+                break;
             }
+        }
         return compare;
     }
 }
