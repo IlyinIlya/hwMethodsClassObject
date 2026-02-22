@@ -16,16 +16,16 @@ public class Main {
         System.out.println("Compare products 1 and 4:" + smartProd1.equals(smartProd4));
         System.out.println("Compare products 1 and 6:" + smartProd1.equals(smartProd6));
         //Fill basket
-        Product[] products1 = {smartProd1, smartProd3, smartProd2};
+        Product[] products1 = {null, smartProd3, smartProd2};
         Product[] products2 = {smartProd2, smartProd4, smartProd1};
         Product[] products3 = {smartProd3, smartProd5};
         Product[] products4 = {smartProd2, smartProd4, smartProd1};
-        Product[] products5 = {smartProd2, smartProd4, smartProd1};
+        Product[] products5 = {smartProd2, null, smartProd1};
         Order order1 = new Order("John", products1);
         Order order2 = new Order("Jack", products2);
         Order order3 = new Order("John", products3);
         Order order4 = new Order("Jack", products4);
-        Order order5 = new Order("Sam", products5);
+        Order order5 = new Order("Jack", products5);
         //Print out and compare
         System.out.println(order1);
         System.out.println(order2);

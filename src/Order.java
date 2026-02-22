@@ -2,8 +2,8 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Order {
-    private String customer;
-    private Product[] basket;
+    private final String customer;
+    private final Product[] basket;
 
     public Order(String customer, Product[] basket) {
         this.customer = customer;
@@ -25,16 +25,19 @@ public class Order {
         }
         Order order = (Order) obj;
         boolean compare = true;
-        if (basket.length != order.basket.length){
-            return false;
-        } else{
-            for (int elem = 0; elem < basket.length; elem++){
-                if (Objects.equals(basket[elem], order.basket[elem]) == false) {
-                    compare = false;
+        if (!Objects.equals(customer, order.customer)) return false;
+        if (basket == null && order.basket == null) return true;
+        if (basket == null || order.basket == null) return false;
+        if (basket.length != order.basket.length) return false;
+
+            for (int elem = 0; elem < basket.length; elem++) {
+                 if (basket[elem] == null || order.basket[elem] == null) return false;
+                 if (basket[elem] == null && order.basket[elem] == null) continue;
+                 if (!basket[elem].equals(order.basket[elem])) {
+                     compare = false;
                     break;
                 }
             }
-        }
-        return Objects.equals(customer, order.customer) && compare;
+        return compare;
     }
 }
