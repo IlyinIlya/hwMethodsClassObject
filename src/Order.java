@@ -25,15 +25,24 @@ public class Order {
         }
         Order order = (Order) obj;
         boolean compare = true;
-        if (!Objects.equals(customer, order.customer)) return false;
-        if (basket == null && order.basket == null) return true;
-        if (basket == null || order.basket == null) return false;
-        if (basket.length != order.basket.length) return false;
+
+        if (!Objects.equals(customer, order.customer)) {
+            return false;
+        }
+        if (basket == null && order.basket == null) {
+            return true;
+        } else if (basket == null || order.basket == null) {
+            return false;
+        } else if (basket.length != order.basket.length) {
+            return false;
+        }
 
         for (int elem = 0; elem < basket.length; elem++) {
-            if (basket[elem] == null || order.basket[elem] == null) return false;
-            if (basket[elem] == null && order.basket[elem] == null) continue;
-            if (!basket[elem].equals(order.basket[elem])) {
+            if (basket[elem] == null || order.basket[elem] == null) {
+                return false;
+            } else if (basket[elem] == null && order.basket[elem] == null) {
+                continue;
+            } else if (!basket[elem].equals(order.basket[elem])) {
                 compare = false;
                 break;
             }
